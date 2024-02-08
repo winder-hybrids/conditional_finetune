@@ -1,0 +1,25 @@
+# data config
+dataset: winder-hybrids/medicaltextbook         # manually download the medical textbook corpus from the MedQA repo https://github.com/jind11/MedQA 
+split: train
+max_token_length: 2048
+
+# model config
+model: meta-llama/Llama-2-7b-hf
+
+# context config
+context_type: text
+context: 'Following is an excerpt from a medical textbook.'
+
+# trainer config
+batch_size: 16
+accumulate_grad_batches: 1
+max_epochs: 5
+lr: 3e-5
+warmup_ratio: 0.1
+lr_scheduler: linear
+gradient_clip_val: 1.0
+
+# global config
+mode: train
+save_dir: save/full_model_text_context
+seed: 1

@@ -1,0 +1,25 @@
+# data config
+dataset: winder-hybrids/medicaltextbook         # manually download the medical textbook corpus from the MedQA repo https://github.com/jind11/MedQA 
+split: train
+max_token_length: 2048
+
+# model config
+model: meta-llama/Llama-2-7b-hf
+
+# context config
+prompt_tuning:
+  num_virtual_tokens: 10
+  task_type: 'CAUSAL_LM'
+
+# trainer config
+batch_size: 16
+accumulate_grad_batches: 1
+max_epochs: 5
+lr: 1e-1
+warmup_ratio: 0.1
+lr_scheduler: linear
+gradient_clip_val: 1.0
+
+# global config
+save_dir: save/context
+seed: 1
